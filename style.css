@@ -16,12 +16,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 150px;
+    padding: 40px 150px;
     box-sizing: border-box;
 }
 
 .logo img {
-    height: 40px;
+    height: 34px;
     /* Adjust as needed */
 }
 
@@ -51,7 +51,8 @@ body {
 }
 
 .portfolio-title img:first-child {
-    width: 900px;
+    margin-top: -2.5em;
+    width: 950px;
     /* Adjust size of the "PORTFOLIO." image */
     height: auto;
 }
@@ -69,8 +70,9 @@ body {
 
 .subtitle {
     font-size: 1.2em;
-    color: #555;
-    margin-top: -1em;
+    color: #000000;
+    margin-top: -2.5em;
+    font-weight: 600;
 }
 
 .filter-buttons {
