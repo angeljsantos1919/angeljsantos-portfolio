@@ -51,7 +51,7 @@ body {
 }
 
 .portfolio-title img:first-child {
-    width: 400px;
+    width: 800px;
     /* Adjust size of the "PORTFOLIO." image */
     height: auto;
 }
