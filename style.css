@@ -1,0 +1,145 @@
+body {
+    font-family: sans-serif;
+    /* Use a font similar to the image, or import a custom one */
+    background-color: #ffe6e6;
+    /* Light pink background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-sizing: border-box;
+}
+
+.logo img {
+    height: 30px;
+    /* Adjust as needed */
+}
+
+.nav-links .nav-button {
+    background-color: #333;
+    /* Dark background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: lowercase;
+    /* Matches image style */
+}
+
+.portfolio-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.portfolio-title {
+    position: relative;
+    display: inline-block;
+    /* To position the star relative to the image */
+}
+
+.portfolio-title img:first-child {
+    width: 400px;
+    /* Adjust size of the "PORTFOLIO." image */
+    height: auto;
+}
+
+.star-icon {
+    position: absolute;
+    top: -20px;
+    /* Adjust position */
+    right: -20px;
+    /* Adjust position */
+    width: 50px;
+    /* Adjust size */
+    height: auto;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 10px;
+}
+
+.filter-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    background-color: #f0f0f0;
+    /* Light gray */
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 20px;
+    /* Pill shape */
+    cursor: pointer;
+    font-size: 0.9em;
+    text-transform: lowercase;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    /* Dark background for active filter */
+    color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    margin-top: 40px;
+    max-width: 1000px;
+    /* Limit width of grid */
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.project-item {
+    background-color: #f8f8f8;
+    /* Light background for project items */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    /* Make the whole area clickable */
+    text-decoration: none;
+    /* Remove underline from links */
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    /* Ensure image fills the container */
+    object-fit: cover;
+    /* Crop image to fit without distortion */
+    display: block;
+}
+
+
+/* Specific styling for the second project item to match the color */
+
+.project-item[href*="project2-link"] {
+    /* Target by part of the href to be specific */
+    background-color: #b56c4d;
+    /* Orange/brown color from your image */
+    /* Add any other specific styles for this item if needed */
+}
