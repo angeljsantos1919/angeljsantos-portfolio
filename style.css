@@ -1,6 +1,5 @@
 body {
     font-family: 'poppins';
-    /* Use a font similar to the image, or import a custom one */
     background-color: #ffe6e6;
     /* Light pink background */
     margin: 0;
@@ -18,6 +17,7 @@ body {
     align-items: center;
     padding: 40px 150px;
     box-sizing: border-box;
+    /* Considera una media query para reducir el padding en pantallas más pequeñas */
 }
 
 .logo img {
@@ -25,46 +25,73 @@ body {
     /* Adjust as needed */
 }
 
-.nav-links .nav-button {
-    background-color: #333;
-    /* Dark background */
-    color: white;
+
+/* Para la línea horizontal, es mejor usar CSS en lugar de <hr noshade> */
+
+
+/* Si tu <hr> está dentro de .navbar, puedes darle estilo así: */
+
+.navbar hr {
+    width: 80%;
     border: none;
-    padding: 10px 20px;
+    border-top: 1px solid black;
+    /* Usa border-top para controlar el grosor y color */
+    margin: 0 20px;
+    /* Ajusta márgenes si es necesario */
+}
+
+.nav-links .nav-button {
+    background-color: #f0f0f0;
+    color: black;
+    border: 3px solid black;
+    padding: 12px 25px;
     margin-left: 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
+    font-size: 1.1em;
     font-weight: bold;
     text-transform: lowercase;
-    /* Matches image style */
+    transition: all 0.3s ease;
+    /* Transición para efectos de hover */
+}
+
+.nav-links .nav-button:hover {
+    background-color: black;
+    /* Cambia el color de fondo en hover */
+    color: white;
+    /* Cambia el color del texto en hover */
 }
 
 .portfolio-section {
     text-align: center;
-    padding: 50px 20px;
+    padding: 20px;
+    /* Padding general para la sección */
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho disponible */
+    box-sizing: border-box;
 }
 
 .portfolio-title {
     position: relative;
     display: inline-block;
-    /* To position the star relative to the image */
 }
 
 .portfolio-title img:first-child {
     margin-top: -2.5em;
-    width: 950px;
-    /* Adjust size of the "PORTFOLIO." image */
+    /* Ajusta este margen si es necesario */
+    width: clamp(500px, 80vw, 1000px);
+    /* Usa clamp para que se adapte mejor: min 500px, 80% del viewport, max 1000px */
     height: auto;
 }
+
+
+/* Si planeas usar un ícono de estrella, asegúrate de añadirlo al HTML */
 
 .star-icon {
     position: absolute;
     top: -20px;
-    /* Adjust position */
     right: -20px;
-    /* Adjust position */
     width: 50px;
-    /* Adjust size */
     height: auto;
 }
 
@@ -72,7 +99,11 @@ body {
     font-size: 1.2em;
     color: #000000;
     margin-top: -2.5em;
-    font-weight: 600;
+    /* Ajusta este margen para posicionar correctamente */
+    margin-left: -1em;
+    /* Ajusta este margen */
+    font-weight: bold;
+    text-align: center;
 }
 
 .filter-buttons {
@@ -80,7 +111,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* Centra los botones horizontalmente */
     gap: 10px;
+    padding: 0 20px;
+    /* Añade un pequeño padding para que no se peguen en móvil */
 }
 
 .filter-btn {
@@ -88,60 +122,300 @@ body {
     /* Light gray */
     color: #333;
     border: 1px solid #ccc;
-    padding: 8px 15px;
-    border-radius: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
     /* Pill shape */
     cursor: pointer;
-    font-size: 0.9em;
+    font-weight: bold;
+    font-size: 1em;
     text-transform: lowercase;
+    transition: all 0.3s ease;
+    /* Transición suave para todos los cambios */
 }
 
 .filter-btn.active {
-    background-color: #333;
-    /* Dark background for active filter */
-    color: white;
+    background-color: #f0f0f0;
+    /* Mismo fondo pero con borde más marcado */
+    color: black;
+    border: 2px solid black;
+}
+
+.filter-btn:hover:not(.active) {
+    /* Solo aplica hover si no está activo */
+    background-color: #e0e0e0;
+    /* Un gris ligeramente más oscuro en hover */
+    border: 1px solid #999;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     margin-top: 40px;
-    max-width: 1000px;
-    /* Limit width of grid */
+    max-width: 1800px;
+    /* Ajusta este valor según el ancho máximo que desees */
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
+    /* AHORA SÍ: CENTRADO HORIZONTAL */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-item {
-    background-color: #f8f8f8;
-    /* Light background for project items */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block;
-    /* Make the whole area clickable */
-    text-decoration: none;
-    /* Remove underline from links */
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    /* Crucial para centrar el overlay y el contenido */
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    min-height: unset;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
 }
 
-.project-item img {
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    /* Ensure image fills the container */
-    object-fit: cover;
-    /* Crop image to fit without distortion */
-    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Color de superposición con transparencia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    /* Por defecto, el overlay es invisible */
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+    /* Transición suave para la aparición y el blur */
+    backdrop-filter: blur(0px);
+    /* Inicialmente sin blur */
+    -webkit-backdrop-filter: blur(0px);
+    /* Para compatibilidad con Safari */
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    /* Apila los botones verticalmente */
+    gap: 15px;
+    /* Espacio entre los botones */
+    transform: translateY(20px);
+    /* Pequeño desplazamiento inicial */
+    opacity: 0;
+    /* Oculta los botones inicialmente */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* Transición para los botones */
+}
+
+.project-icon {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco semitransparente para los botones */
+    color: #333;
+    /* Texto oscuro para los botones */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* Borde suave */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+    /* Evita que el texto de los botones se rompa */
+}
+
+.project-icon:hover {
+    background-color: #333;
+    /* Fondo oscuro al pasar el ratón */
+    color: white;
+    /* Texto blanco al pasar el ratón */
 }
 
 
-/* Specific styling for the second project item to match the color */
+/* Efecto al pasar el ratón por encima del project-item */
 
-.project-item[href*="project2-link"] {
-    /* Target by part of the href to be specific */
-    background-color: #b56c4d;
-    /* Orange/brown color from your image */
-    /* Add any other specific styles for this item if needed */
+.project-item:hover .project-overlay {
+    opacity: 1;
+    /* Hace visible el overlay */
+    backdrop-filter: blur(5px);
+    /* Aplica el blur al overlay */
+    -webkit-backdrop-filter: blur(5px);
+    /* Para compatibilidad con Safari */
+}
+
+.project-item:hover .icon-container {
+    opacity: 1;
+    /* Muestra los botones */
+    transform: translateY(0);
+    /* Vuelve a la posición original */
+}
+
+
+/* Estilo específico para items de "maquetacion" (si aplica y la imagen de fondo no lo cubre) */
+
+.project-item[data-category*="maquetacion"] {
+    /* Si la imagen de fondo ocupa todo, este background-color no se verá a menos que la imagen falle */
+    /* background-color: #b56c4d; */
+}
+
+.main-footer {
+    width: 100%;
+    background-color: #ffe6e6;
+    padding: 30px 50px;
+    box-sizing: border-box;
+    margin-top: auto;
+    /* Empuja el footer hacia abajo si el contenido es poco */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea el contenido a la derecha */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.footer-content img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+
+/* --- Media Queries para responsividad --- */
+
+
+/* Para pantallas más pequeñas (ej. tablets y móviles) */
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 20px 50px;
+        /* Reduce el padding de la barra de navegación */
+    }
+    .portfolio-title img:first-child {
+        width: clamp(300px, 70vw, 800px);
+        /* Ajusta el tamaño del título "PORTFOLIO." */
+        margin-top: -1.5em;
+        /* Ajusta el margen superior */
+    }
+    .subtitle {
+        font-size: 1em;
+        margin-top: -1em;
+        /* Ajusta el margen superior del subtítulo */
+    }
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Permite menos columnas y un min-width menor */
+        gap: 15px;
+        padding: 0 15px;
+        /* Reduce el padding lateral */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        /* Apila logo y nav-links */
+        padding: 20px;
+    }
+    .navbar hr {
+        width: 90%;
+        /* La línea puede ser un poco más ancha */
+        margin-top: 15px;
+    }
+    .nav-links {
+        margin-top: 15px;
+    }
+    .nav-links .nav-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .portfolio-title img:first-child {
+        width: clamp(250px, 85vw, 600px);
+        /* Ajusta aún más el tamaño del título */
+        margin-top: -1em;
+    }
+    .subtitle {
+        font-size: 0.9em;
+        margin-top: -0.5em;
+        margin-left: 0;
+        /* Centra completamente el subtítulo */
+    }
+    .filter-buttons {
+        gap: 8px;
+        padding: 0 10px;
+    }
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.9em;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* 2 columnas en móviles (o 1 si el minmax es muy grande) */
+        gap: 10px;
+        padding: 0 10px;
+    }
+    .project-item {
+        min-height: 200px;
+        /* Asegura un tamaño mínimo decente en móviles */
+    }
+    .project-icon {
+        font-size: 0.9em;
+        /* Reduce el tamaño de los botones en móviles */
+        padding: 8px 15px;
+    }
+    .footer-content {
+        justify-content: center;
+        /* Centra los iconos del footer en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px;
+    }
+    .logo img {
+        height: 30px;
+    }
+    .portfolio-title img:first-child {
+        width: clamp(200px, 90vw, 400px);
+        margin-top: 0;
+        /* Puede que no necesites margen negativo en pantallas muy pequeñas */
+    }
+    .subtitle {
+        font-size: 0.8em;
+        margin-top: 0.5em;
+    }
+    .filter-buttons {
+        gap: 7px;
+        padding: 0 5px;
+    }
+    .filter-btn {
+        padding: 7px 15px;
+        font-size: 0.8em;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Una sola columna en los móviles más pequeños */
+        padding: 0 5px;
+    }
+    .project-item {
+        min-height: 250px;
+        /* Puede que quieras que sean más altos si son de una sola columna */
+    }
+    .project-icon {
+        font-size: 0.8em;
+        padding: 7px 12px;
+    }
 }
