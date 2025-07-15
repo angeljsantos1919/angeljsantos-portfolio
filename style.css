@@ -138,7 +138,7 @@ body {
     background-color: #f0f0f0;
     /* Mismo fondo pero con borde más marcado */
     color: black;
-    border: 2px solid black;
+    border: 1.9px solid black;
 }
 
 .filter-btn:hover:not(.active) {
@@ -179,6 +179,28 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    /* O puedes usar scale(0.9) o translateX */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* NUEVO: Clase que activará la animación */
+
+.project-item.visible {
+    animation: fadeInUp 1s ease-out forwards;
+    /* Duración, tipo de easing, y forwards para que mantenga el estado final */
 }
 
 .project-overlay {
@@ -222,10 +244,10 @@ body {
     color: #ffffff;
     /* Texto oscuro para los botones */
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 200;
     text-align: center;
     border: 1px solid rgb(255, 255, 255);
@@ -263,11 +285,6 @@ body {
 
 
 /* Estilo específico para items de "maquetacion" (si aplica y la imagen de fondo no lo cubre) */
-
-.project-item[data-category*="maquetacion"] {
-    /* Si la imagen de fondo ocupa todo, este background-color no se verá a menos que la imagen falle */
-    /* background-color: #b56c4d; */
-}
 
 .main-footer {
     width: 100%;
