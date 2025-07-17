@@ -373,8 +373,8 @@ body {
         margin-top: -1em;
     }
     .subtitle {
-        font-size: 1em;
-        margin-top: -1em;
+        font-size: 0.9em;
+        margin-top: -0.5em;
         margin-left: 0;
         /* Centra completamente el subtítulo */
     }
@@ -419,38 +419,30 @@ body {
         margin-top: 0;
         margin-left: -15px;
     }
-}
-
-.subtitle {
-    font-size: 0.8em;
-    margin-top: 0.5em;
-}
-
-.filter-buttons {
-    gap: 7px;
-    padding: 0 5px;
-}
-
-.filter-btn {
-    padding: 7px 15px;
-    font-size: 0.8em;
-}
-
-.projects-grid {
-    grid-template-columns: 1fr;
-    /* Una sola columna en los móviles más pequeños */
-    padding: 0 5px;
-}
-
-.project-item {
-    min-height: 250px;
-    /* Puede que quieras que sean más altos si son de una sola columna */
-}
-
-.project-icon {
-    font-size: 0.8em;
-    padding: 7px 12px;
-}
-
-
+    .subtitle {
+        font-size: 1em;
+        margin-top: -1.5em;
+        margin-left: -8px;
+    }
+    .filter-buttons {
+        gap: 7px;
+        padding: 0 5px;
+    }
+    .filter-btn {
+        padding: 7px 16px;
+        font-size: 0.9em;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Una sola columna en los móviles más pequeños */
+        padding: 0 5px;
+    }
+    .project-item {
+        min-height: 250px;
+        /* Puede que quieras que sean más altos si son de una sola columna */
+    }
+    .project-icon {
+        font-size: 0.8em;
+        padding: 7px 12px;
+    }
 }
