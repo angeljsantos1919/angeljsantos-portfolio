@@ -344,30 +344,37 @@ body {
 
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        /* Apila logo y nav-links */
-        padding: 20px;
+        /* ¡MODIFICADO! Quitamos flex-direction: column; aquí */
+        flex-direction: row;
+        /* Mantenemos el logo y el botón en fila */
+        justify-content: space-between;
+        /* Distribuye espacio entre ellos */
+        padding: 80px;
+        /* Ajusta el padding para móviles */
     }
+    /* ¡NUEVO! Ocultamos la línea horizontal si está dentro de la navbar */
+    /* Si la línea <hr> no está dentro de la .navbar, puedes ignorar esta regla. */
     .navbar hr {
-        width: 90%;
-        /* La línea puede ser un poco más ancha */
-        margin-top: 15px;
+        display: none;
+        /* Oculta la línea horizontal en móvil */
     }
+    /* Ajusta los márgenes si la navbar no es column */
     .nav-links {
-        margin-top: 15px;
+        margin-top: 0;
+        /* Asegurarse de que no tenga un margin-top si está en la misma fila */
     }
     .nav-links .nav-button {
         padding: 10px 20px;
         font-size: 1em;
     }
     .portfolio-title img:first-child {
-        width: clamp(250px, 85vw, 600px);
-        /* Ajusta aún más el tamaño del título */
+        width: clamp(200px, 99vw, 400px);
+        margin-left: -15px;
         margin-top: -1em;
     }
     .subtitle {
-        font-size: 0.9em;
-        margin-top: -0.5em;
+        font-size: 1em !important;
+        margin-top: -1em !important;
         margin-left: 0;
         /* Centra completamente el subtítulo */
     }
@@ -402,39 +409,48 @@ body {
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 15px;
+        padding: 20px 25px;
     }
     .logo img {
         height: 30px;
     }
     .portfolio-title img:first-child {
-        width: clamp(200px, 90vw, 400px);
+        width: clamp(200px, 99vw, 400px);
         margin-top: 0;
-        /* Puede que no necesites margen negativo en pantallas muy pequeñas */
+        margin-left: -15px;
     }
-    .subtitle {
-        font-size: 0.8em;
-        margin-top: 0.5em;
-    }
-    .filter-buttons {
-        gap: 7px;
-        padding: 0 5px;
-    }
-    .filter-btn {
-        padding: 7px 15px;
-        font-size: 0.8em;
-    }
-    .projects-grid {
-        grid-template-columns: 1fr;
-        /* Una sola columna en los móviles más pequeños */
-        padding: 0 5px;
-    }
-    .project-item {
-        min-height: 250px;
-        /* Puede que quieras que sean más altos si son de una sola columna */
-    }
-    .project-icon {
-        font-size: 0.8em;
-        padding: 7px 12px;
-    }
+}
+
+.subtitle {
+    font-size: 0.8em;
+    margin-top: 0.5em;
+}
+
+.filter-buttons {
+    gap: 7px;
+    padding: 0 5px;
+}
+
+.filter-btn {
+    padding: 7px 15px;
+    font-size: 0.8em;
+}
+
+.projects-grid {
+    grid-template-columns: 1fr;
+    /* Una sola columna en los móviles más pequeños */
+    padding: 0 5px;
+}
+
+.project-item {
+    min-height: 250px;
+    /* Puede que quieras que sean más altos si son de una sola columna */
+}
+
+.project-icon {
+    font-size: 0.8em;
+    padding: 7px 12px;
+}
+
+
 }
