@@ -297,7 +297,7 @@ body {
 
 .footer-content {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     /* Alinea el contenido a la derecha */
     align-items: center;
     /* Centra verticalmente los elementos */
